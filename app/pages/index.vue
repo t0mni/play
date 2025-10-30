@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto max-w-3xl p-6">
+  <div class="p-4">
     <header class="mb-8">
       <h1 class="text-3xl font-bold">Tom Nichols</h1>
       <p class="text-sm opacity-70">Front-end dev · Design systems · Generative art</p>

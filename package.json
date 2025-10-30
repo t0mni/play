@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port 4000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "nuxi generate && rm -rf docs && cp -R .output/public docs && git add -A && git commit -m 'deploy' && git push"
   },
   "dependencies": {
     "@nuxt/eslint": "^1.9.0",
