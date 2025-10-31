@@ -13,7 +13,7 @@
         <!-- Header spans all 12 columns -->
         <header class="col-span-12 mb-8">
             <h1 class="text-9xl">Play.</h1>
-            <p class="text-sm opacity-70">
+            <p class="text-sm opacity-50">
                 Front-end dev · Design systems · Generative art
             </p>
         </header>
@@ -53,7 +53,7 @@
     </aside> -->
 
         <!-- Footer spans all 12 columns -->
-        <footer class="fixed inset-x-0 bottom-2 col-span-12 pt-4 text-sm opacity-20">
+        <footer class="fixed inset-x-0 bottom-2 col-span-12 pt-4 text-xs opacity-20">
             ©{{ year }} Tom Nichols
         </footer>
     </div>
