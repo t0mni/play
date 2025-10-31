@@ -3,7 +3,7 @@
         <div class="mx-auto px-0">
             <div class="grid grid-cols-12 gap-x-1 h-full">
                 <div v-for="(n, i) in 12" :key="n" class="h-full" :class="`bg-neutral-${(n * 100) % 900}`" :style="{'--i': i }"">
-                    <span class=" block text-[10px] leading-8 text-center opacity-60 font-monolith cell">{{ n }}</span>
+                    <span class=" block text-[10px] leading-8 text-center opacity-50 font-monolith cell">{{ n }}</span>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
         <!-- Header spans all 12 columns -->
         <header class="col-span-12 mb-8">
             <h1 class="text-9xl tracking-normal -mt-4 text-shadow-lg">Play<span class="-ml-4">.</span></h1>
-            <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-4">
+            <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-3">
                 Front-end dev · Design systems · Generative art
             </p>
         </header>
