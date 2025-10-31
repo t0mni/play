@@ -2,8 +2,8 @@
     <div class="fixed inset-x-0 top-0 z-50 pointer-events-none">
         <div class="mx-auto px-0">
             <div class="grid grid-cols-12 gap-x-1 h-full">
-                <div v-for="n in 12" :key="n" class="h-full" :class="`bg-neutral-${(n * 100) % 900}`">
-                    <span class=" block text-[10px] leading-8 text-center opacity-60 font-monolith">{{ n }}</span>
+                <div v-for="(n, i) in 12" :key="n" class="h-full" :class="`bg-neutral-${(n * 100) % 900}`" :style="{'--i': i }"">
+                    <span class=" block text-[10px] leading-8 text-center opacity-60 font-monolith cell">{{ n }}</span>
                 </div>
             </div>
         </div>
@@ -12,8 +12,8 @@
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
         <!-- Header spans all 12 columns -->
         <header class="col-span-12 mb-8">
-            <h1 class="text-9xl tracking-tight">Play<span class="-ml-4">.</span></h1>
-            <p class="text-sm opacity-50 font-monolith uppercase tracking-widest">
+            <h1 class="text-9xl tracking-normal -mt-4 text-shadow-lg">Play<span class="-ml-4">.</span></h1>
+            <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-4">
                 Front-end dev · Design systems · Generative art
             </p>
         </header>
@@ -62,3 +62,16 @@
 <script setup lang="ts">
 const year = new Date().getFullYear()
 </script>
+<style scoped>
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Each cell animates in; delay is based on its index */
+.cell {
+  opacity: 0;
+  animation: reveal .28s ease-out forwards;
+  animation-delay: calc(var(--i) * 90ms);
+}
+</style>
