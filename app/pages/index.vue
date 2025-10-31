@@ -12,8 +12,8 @@
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
         <!-- Header spans all 12 columns -->
         <header class="col-span-12 mb-8">
-            <h1 class="text-9xl">Play<span class="-ml-3">.</span></h1>
-            <p class="text-sm opacity-50 font-monolith uppercase">
+            <h1 class="text-9xl tracking-tight">Play<span class="-ml-4">.</span></h1>
+            <p class="text-sm opacity-50 font-monolith uppercase tracking-widest">
                 Front-end dev · Design systems · Generative art
             </p>
         </header>
