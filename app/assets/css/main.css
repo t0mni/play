@@ -4,8 +4,9 @@
 body {
     @apply bg-slate-950;
     cursor: crosshair;
-
-  /* font-family: 'TheGoodMonolith', sans-serif; */
+}
+.font-monolith {
+  font-family: "TheGoodMonolith", sans-serif;
 }
 h1, h2, h3, h4, h5, h6 {
   /* text-transform: uppercase; */
