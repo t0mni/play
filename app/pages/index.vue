@@ -80,7 +80,7 @@ const fonts = [
     { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
     { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
     { family: '"Helvetica", sans-serif', weight: 100, style: 'italic' },
-    { family: '"Apple Garamond", serif', weight: 700, style: 'normal' }
+    { family: '"Apple Garamond", serif', weight: 300, style: 'normal' }
 ]
 const font = ref(fonts[0])
 
@@ -97,10 +97,14 @@ onMounted(() => {
         if (i < totalCycles) {
             setTimeout(cycle, delay)
             delay *= slowFactor
+        } else {
+            // 🎯 pick a random font when done
+            const random = Math.floor(Math.random() * fonts.length)
+            font.value = fonts[random]
         }
     }
 
     // start after 1s
-    setTimeout(cycle, 1200)
+    setTimeout(cycle, 1100)
 })
 </script>
