@@ -2,8 +2,9 @@
     <div class="fixed inset-x-0 top-0 z-50 pointer-events-none">
         <div class="mx-auto px-0">
             <div class="grid grid-cols-12 gap-x-1 h-full">
-                <div v-for="(n, i) in 12" :key="n" class="h-full" :class="`bg-neutral-${(n * 100) % 900}`" :style="{'--i': i }"">
-                    <span class="block text-xs text-center font-monolith cell">{{ n }}</span>
+                <div v-for="(n, i) in 12" :key="n" class="h-full" :class="`bg-neutral-${(n * 100) % 900}`"
+                    :style="{ '--i': i }"">
+                    <span class=" block text-xs text-center font-monolith cell">{{ n }}</span>
                 </div>
             </div>
         </div>
@@ -11,11 +12,17 @@
 
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
         <!-- Header spans all 12 columns -->
-        <header class="col-span-12 mb-8">
-            <h1 class="text-9xl tracking-normal -mt-4 text-shadow-lg">Play<span class="-ml-4">.</span></h1>
+        <header class="col-span-12 mb-8 fade-in-delayed">
+            <h1 :style="{
+                fontFamily: font.family,
+                fontWeight: font.weight,
+                fontStyle: font.style
+            }" class="transition-all duration-300 text-9xl tracking-normal -mt-4 text-shadow-lg">
+                Play<span class="-ml-4">.</span>
+            </h1>
             <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-3">
                 Front-end dev · Design systems · Generative art
-                <br/> —
+                <br /> —
             </p>
         </header>
 
@@ -56,25 +63,44 @@
         <!-- Footer spans all 12 columns -->
         <footer class="fixed inset-x-0 bottom-2 col-span-12 p-2.5 text-xs opacity-20 font-monolith">
             —
-            <br/>
+            <br />
             ©{{ year }} Tom Nichols
         </footer>
     </div>
 </template>
 
 <script setup lang="ts">
-const year = new Date().getFullYear()
-</script>
-<style scoped>
-@keyframes reveal {
-  from { opacity: 0; transform: translateY(6px) scale(0.98); }
-  to   { opacity: 0.5; transform: translateY(0) scale(1); }
-}
+import { ref, onMounted } from 'vue'
 
-/* Each cell animates in; delay is based on its index */
-.cell {
-  opacity: 0;
-  animation: reveal .28s ease-out forwards;
-  animation-delay: calc(var(--i) * 90ms);
-}
-</style>
+const year = new Date().getFullYear()
+
+const fonts = [
+    { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
+    { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
+    { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
+    { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
+    { family: '"Helvetica", sans-serif', weight: 100, style: 'italic' },
+    { family: '"Apple Garamond", serif', weight: 700, style: 'normal' }
+]
+const font = ref(fonts[0])
+
+onMounted(() => {
+    let i = 0
+    let delay = 100          // start very fast (100ms between swaps)
+    const totalCycles = 30  // total font changes before stopping
+    const slowFactor = 1.1 // smaller = slower slowdown (gentler taper)
+
+    function cycle() {
+        font.value = fonts[i % fonts.length]
+        i++
+
+        if (i < totalCycles) {
+            setTimeout(cycle, delay)
+            delay *= slowFactor
+        }
+    }
+
+    // start after 1s
+    setTimeout(cycle, 1200)
+})
+</script>
