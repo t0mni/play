@@ -65,7 +65,8 @@
     </aside> -->
 
         <!-- Footer spans all 12 columns -->
-        <footer class="fixed inset-x-0 bottom-2 col-span-12 p-2.5 text-xs opacity-20 font-monolith uppercase tracking-wide">
+        <footer
+            class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs opacity-20 font-monolith uppercase tracking-wide">
             —
             <br />
             ©{{ year }} Tom Nichols
@@ -85,7 +86,6 @@ const fonts = [
     { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
     { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
     { family: '"Apple Garamond", serif', weight: 300, style: 'normal' },
-    { family: '"Sweet Candy", serif', weight: 300, style: 'normal' },
     { family: '"Maria", serif', weight: 300, style: 'normal' }
 ]
 const font = ref(fonts[0])

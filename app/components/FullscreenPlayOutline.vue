@@ -5,40 +5,44 @@
     preserveAspectRatio="xMinYMin slice"
     aria-hidden="true"
   >
-    <g
-      class="intro-appear animate-slow-rotate opacity-0"
-      style="transform-origin:50% 50%; transform-box:view-box;"
-    >
-      <polygon
-        points="-5,-5 105,50 -5,105"
+    <g class="spin" style="transform-origin:50% 50%; transform-box:view-box;">
+      <!-- Start drawing at TOP-LEFT corner (-5,-5), go to tip, then bottom-left, then close -->
+      <path
+        class="draw"
+        d="M -5 -5 L 105 50 L -5 105 Z"
         fill="none"
         stroke="currentColor"
-        stroke-opacity="0.25"
         stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
         vector-effect="non-scaling-stroke"
-        stroke-linejoin="miter"
       />
     </g>
   </svg>
 </template>
 
 <style scoped>
-@keyframes intro {
-  0%   { opacity: 0; transform: translateY(0) scale(1.01); }
-  90%  { opacity: 1; transform: translateY(0) scale(0.99); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-@keyframes slow-rotate {
-  0%   { transform: rotate(-1deg); }
-  1%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+
+/* Single-head draw: hide whole path, slide one dash along until fully revealed */
+.draw{
+  stroke-dasharray: 10000;   /* tiny overdraw prevents a seam at the end */
+  stroke-dashoffset: 10000;  /* fully hidden initially */
+  animation: draw 2.8s cubic-bezier(.2,.8,.2,1) .4s forwards; /* delay .4s */
 }
 
-/* run intro once, then start the slow rotation */
-.intro-appear.animate-slow-rotate {
-  animation:
-    intro 1s ease-out 1s forwards,
-    slow-rotate 120s linear 5s infinite;
-    transform-origin: 50% 50%;
+/* After the draw completes (≈3.2s), begin slow rotation */
+.spin{
+  animation: slow-rotate 120s linear infinite;
+  animation-delay: .7s;
+  transform-origin: 50% 50%;
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes slow-rotate { to { transform: rotate(360deg); } }
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  .draw{ animation: none; stroke-dashoffset: 0; }
+  .spin{ animation: none; }
 }
 </style>
