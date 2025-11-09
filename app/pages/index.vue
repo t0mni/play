@@ -65,7 +65,7 @@
     </aside> -->
 
         <!-- Footer spans all 12 columns -->
-        <footer class="fixed inset-x-0 bottom-2 col-span-12 p-2.5 text-xs opacity-20 font-monolith">
+        <footer class="fixed inset-x-0 bottom-2 col-span-12 p-2.5 text-xs opacity-20 font-monolith uppercase tracking-wide">
             —
             <br />
             ©{{ year }} Tom Nichols

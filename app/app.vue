@@ -21,7 +21,6 @@ useHead({
 const colorClasses = [
   'bg-black',
   'bg-blue-950',
-  'bg-red-900',
   'bg-emerald-900',
   'bg-cyan-950',
   'bg-slate-900',
