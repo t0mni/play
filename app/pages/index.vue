@@ -23,7 +23,7 @@
             }" class="transition-all duration-300 text-9xl tracking-normal -mt-4 text-shadow-lg">
                 Play<span class="-ml-4">.</span>
             </h1>
-            <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-3">
+            <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-4 ml-1">
                 Front-end dev · Design systems · Generative art
                 <br />
                 <span class="blink">—</span>

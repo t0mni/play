@@ -42,7 +42,7 @@
 /* rotation begins after intro completes */
 .animate-slow-rotate {
   animation: slow-rotate 120s linear infinite;
-  animation-delay: 2.5s; /* starts right after intro ends */
+  animation-delay: 6s; /* starts right after intro ends */
   transform-origin: 50% 50%;
 }
 </style>

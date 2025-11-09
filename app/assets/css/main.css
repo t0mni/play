@@ -19,19 +19,7 @@ body {
 
 .blink {
   display: inline-block;
-  animation: blink 1s step-end 7s infinite;
-}
-
-@keyframes reveal {
-    from {
-        opacity: 0;
-        transform: translateY(6px) scale(0.98);
-    }
-
-    to {
-        opacity: 0.5;
-        transform: translateY(0) scale(1);
-    }
+  animation: blink 1s step-end 6s infinite;
 }
 
 /* Each cell animates in; delay is based on its index */
