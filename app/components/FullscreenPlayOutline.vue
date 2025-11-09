@@ -6,7 +6,7 @@
     aria-hidden="true"
   >
     <g
-      class="intro-appear animate-slow-rotate"
+      class="intro-appear animate-slow-rotate opacity-0"
       style="transform-origin:50% 50%; transform-box:view-box;"
     >
       <polygon
@@ -24,25 +24,21 @@
 
 <style scoped>
 @keyframes intro {
-  0%   { opacity: 0; transform: translateY(-5%) scale(0.96); }
-  60%  { opacity: 1; transform: translateY(0) scale(1.02); }
+  0%   { opacity: 0; transform: translateY(0) scale(1.01); }
+  90%  { opacity: 1; transform: translateY(0) scale(0.99); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 @keyframes slow-rotate {
-  0%   { transform: rotate(0deg); }
+  0%   { transform: rotate(-1deg); }
+  1%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-/* intro fade-in happens once */
-.intro-appear {
-  animation: intro 2s ease-out forwards;
-  animation-delay: 0.5s; /* small pause before it starts */
-}
-
-/* rotation begins after intro completes */
-.animate-slow-rotate {
-  animation: slow-rotate 120s linear infinite;
-  animation-delay: 6s; /* starts right after intro ends */
-  transform-origin: 50% 50%;
+/* run intro once, then start the slow rotation */
+.intro-appear.animate-slow-rotate {
+  animation:
+    intro 1s ease-out 1s forwards,
+    slow-rotate 120s linear 5s infinite;
+    transform-origin: 50% 50%;
 }
 </style>

@@ -84,9 +84,9 @@ const fonts = [
     { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
     { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
     { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
-    { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
-    { family: '"Helvetica", sans-serif', weight: 100, style: 'italic' },
-    { family: '"Apple Garamond", serif', weight: 300, style: 'normal' }
+    { family: '"Apple Garamond", serif', weight: 300, style: 'normal' },
+    { family: '"Sweet Candy", serif', weight: 300, style: 'normal' },
+    { family: '"Maria", serif', weight: 300, style: 'normal' }
 ]
 const font = ref(fonts[0])
 
