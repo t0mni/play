@@ -13,7 +13,6 @@ useHead({
     { rel: 'preconnect', href: 'https://fonts.cdnfonts.com' },
     { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/thegoodmonolith' }, 
     { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/maria-2' }, 
-    { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/sweet-candy' }, 
     { rel: 'stylesheet', href: base + 'fonts.css' } 
   ],
   meta: [

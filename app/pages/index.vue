@@ -14,16 +14,17 @@
         <div class="fixed top-4 right-2 md:right-12 z-50">
             <MenuButton v-model:open="isOpen" />
         </div>
-        <!-- Header spans all 12 columns -->
-        <header class="col-span-12 mb-8 fade-in-delayed">
+        <header class="col-span-12 mb-8">
             <h1 :style="{
                 fontFamily: font.family,
                 fontWeight: font.weight,
                 fontStyle: font.style
-            }" class="transition-all duration-300 text-9xl tracking-normal -mt-4 text-shadow-lg">
+            }" class="fade-in text-9xl tracking-normal -mt-4 text-shadow-lg transition-all duration-300">
                 Play<span class="-ml-4">.</span>
             </h1>
-            <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-4 ml-1">
+
+            <p class="fade-in text-sm opacity-50 font-monolith uppercase tracking-wide -mt-4 ml-1"
+                style="animation-delay: 0.8s">
                 Front-end dev · Design systems · Generative art
                 <br />
                 <span class="blink">—</span>

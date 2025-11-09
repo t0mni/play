@@ -1,13 +1,5 @@
 @import "tailwindcss";
 
-.font-monolith {
-    font-family: "TheGoodMonolith", sans-serif;
-}
-.font-candy {
-    font-family: "Sweet Candy", sans-serif;
-}
-
-
 html,
 body {
     @apply bg-black;
@@ -15,38 +7,38 @@ body {
     cursor: crosshair;
 }
 
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
+.font-monolith {
+    font-family: "TheGoodMonolith", sans-serif;
 }
 
-.blink {
-  display: inline-block;
-  animation: blink 1s step-end 6s infinite;
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.98);
+    }
+    to {
+        opacity: 0.5;
+        transform: translateY(0) scale(1);
+    }
 }
 
-/* Each cell animates in; delay is based on its index */
 .cell {
     opacity: 0;
     animation: reveal .28s ease-out forwards;
     animation-delay: calc(var(--i) * 90ms);
 }
 
-/* Header fade-in after grid finishes */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.fade-in-delayed {
-    opacity: 0;
-    animation: fadeUp 0.3s ease-out 0.8s forwards;
-    /* 1.5s delay matches end of grid animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
 }
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
