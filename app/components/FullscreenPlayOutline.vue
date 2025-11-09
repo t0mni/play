@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="fixed inset-0 w-full h-full pointer-events-none -z-10"
+    class="fixed inset-0 w-full h-full pointer-events-none text-white/40"
     viewBox="0 0 100 100"
     preserveAspectRatio="xMinYMin slice"
     aria-hidden="true"
