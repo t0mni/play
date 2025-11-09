@@ -1,4 +1,5 @@
 <template>
+    
     <FullscreenPlayOutline />
     <div class="fixed inset-x-0 top-0 z-50 pointer-events-none">
         <div class="mx-auto px-0">
@@ -80,7 +81,12 @@ import { ref, onMounted } from 'vue'
 const isOpen = ref(false)
 
 const year = new Date().getFullYear()
-
+const colorClasses = [
+  'bg-black',
+  'bg-blue-950',
+  'bg-slate-900',
+  'bg-neutral-950'
+]
 const fonts = [
     { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
     { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
@@ -92,6 +98,15 @@ const fonts = [
 const font = ref(fonts[0])
 
 onMounted(() => {
+  // remove any previous bg-* classes so they don't stack
+  document.body.classList.remove(...colorClasses)
+
+  // pick one at random
+  const random = colorClasses[Math.floor(Math.random() * colorClasses.length)]
+
+  // add it to <body>
+  document.body.classList.add(random)
+
     let i = 0
     let delay = 100          // start very fast (100ms between swaps)
     const totalCycles = 20  // total font changes before stopping
