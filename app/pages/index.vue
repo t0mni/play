@@ -11,6 +11,9 @@
     </div>
 
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
+        <div class="fixed top-4 right-12 z-50">
+            <PlayMenuButton v-model:open="isOpen" />
+        </div>
         <!-- Header spans all 12 columns -->
         <header class="col-span-12 mb-8 fade-in-delayed">
             <h1 :style="{
@@ -22,7 +25,8 @@
             </h1>
             <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-3">
                 Front-end dev · Design systems · Generative art
-                <br /> —
+                <br />
+                <span class="blink">—</span>
             </p>
         </header>
 
@@ -72,6 +76,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
+const isOpen = ref(false)
+
 const year = new Date().getFullYear()
 
 const fonts = [
@@ -87,7 +93,7 @@ const font = ref(fonts[0])
 onMounted(() => {
     let i = 0
     let delay = 100          // start very fast (100ms between swaps)
-    const totalCycles = 24  // total font changes before stopping
+    const totalCycles = 20  // total font changes before stopping
     const slowFactor = 1.1 // smaller = slower slowdown (gentler taper)
 
     function cycle() {
