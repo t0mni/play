@@ -11,7 +11,7 @@ body {
 }
 
 body {
-    @apply bg-slate-950 p-2.5;
+    @apply bg-black p-2.5;
     cursor: crosshair;
 }
 
@@ -51,16 +51,4 @@ body {
     opacity: 0;
     animation: fadeUp 0.3s ease-out 1s forwards;
     /* 1.5s delay matches end of grid animation */
-}
-
-@keyframes fontCycle {
-  0%   { font-family: "TheGoodMonolith", sans-serif; }
-  33%  { font-family: "Apple Garamond", serif; }
-  66%  { font-family: "Helvetica", sans-serif; font-weight: 700; }
-  100% { font-family: "Times New Roman", sans-serif; }
-}
-
-.font-cycle {
-  animation: fontCycle 1s ease-out 3 1s forwards;
-  /* 2s per cycle, starts after 1s delay, loops 3 times, ends on last frame */
 }

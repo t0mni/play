@@ -17,7 +17,7 @@
                 fontFamily: font.family,
                 fontWeight: font.weight,
                 fontStyle: font.style
-            }" class="transition-all duration-300 text-9xl tracking-normal -mt-4 text-shadow-lg">
+            }" class="transition-all duration-300 text-9xl tracking-normal -mt-4 text-shadow-lg fade-in-delayed">
                 Play<span class="-ml-4">.</span>
             </h1>
             <p class="text-sm opacity-50 font-monolith uppercase tracking-wide -mt-3">
@@ -87,7 +87,7 @@ const font = ref(fonts[0])
 onMounted(() => {
     let i = 0
     let delay = 100          // start very fast (100ms between swaps)
-    const totalCycles = 30  // total font changes before stopping
+    const totalCycles = 24  // total font changes before stopping
     const slowFactor = 1.1 // smaller = slower slowdown (gentler taper)
 
     function cycle() {
