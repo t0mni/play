@@ -1,4 +1,19 @@
 <template>
+  <svg
+    class="fixed inset-0 w-full h-full pointer-events-none -z-10"
+    viewBox="0 0 100 100"
+    preserveAspectRatio="xMidYMid slice"
+    aria-hidden="true"
+  >
+    <polygon
+      points="30,20 85,50 30,80"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-opacity="0.15"
+      vector-effect="non-scaling-stroke"
+    />
+  </svg>
     <div class="fixed inset-x-0 top-0 z-50 pointer-events-none">
         <div class="mx-auto px-0">
             <div class="grid grid-cols-12 gap-x-1 h-full">
@@ -12,7 +27,7 @@
 
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
         <div class="fixed top-4 right-12 z-50">
-            <PlayMenuButton v-model:open="isOpen" />
+            <MenuButton v-model:open="isOpen" />
         </div>
         <!-- Header spans all 12 columns -->
         <header class="col-span-12 mb-8 fade-in-delayed">
