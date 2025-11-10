@@ -1,5 +1,6 @@
 <template>
   <FullscreenPlayOutline />
+  <div class="fixed inset-0 pointer-events-none bg-gradient-to-b from-transparent to-black opacity-80 z-0"></div>
   <div :class="[bgClass, 'min-h-screen text-white p-2.5 transition-colors duration-700']">
     <NuxtPage />
   </div>
