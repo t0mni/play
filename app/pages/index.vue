@@ -9,11 +9,11 @@
             </div>
         </div>
     </div>
-
+    <div class="fixed top-4 right-2 md:right-12 z-[1000]">
+        <MenuButton v-model:open="isOpen" />
+    </div>
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
-        <div class="fixed top-4 right-2 md:right-12 z-50">
-            <MenuButton v-model:open="isOpen" />
-        </div>
+
         <header class="col-span-12 mb-8">
             <h1 :style="{
                 fontFamily: font.family,
