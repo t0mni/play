@@ -55,6 +55,16 @@ body {
     }
 }
 
-.fade-enter-active { transition: opacity .25s ease, transform .25s ease; }
-.fade-enter-from { opacity:0; transform:translateY(-10px); }
-.fade-leave-to   { opacity:0; transform:translateY(10px); }
+.fade-enter-active {
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.fade-enter-from {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+}

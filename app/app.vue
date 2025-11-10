@@ -12,13 +12,15 @@ const base = useRuntimeConfig().app.baseURL || '/'
 useHead({
   link: [
     { rel: 'preconnect', href: 'https://fonts.cdnfonts.com' },
-    { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/thegoodmonolith' }, 
-    { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/maria-2' }, 
-    { rel: 'stylesheet', href: base + 'fonts.css' } 
+    { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/thegoodmonolith' },
+    { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/maria-2' },
+    { rel: 'stylesheet', href: base + 'fonts.css' },
+    { rel: 'preload', as: 'font', href: base + 'fonts/AlphaLyrae-Medium.woff2', type: 'font/woff2', crossorigin: 'anonymous' }
+
   ],
   meta: [
-    { name: 'theme-color', content: '#000000' } 
-  ]  
+    { name: 'theme-color', content: '#000000' }
+  ]
 })
 const colorClasses = [
   'bg-black',

@@ -99,11 +99,12 @@ import { ref, onMounted, watch } from 'vue'
 const isOpen = ref(false)
 const year = new Date().getFullYear()
 const fonts = [
-    { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
-    { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
-    { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
-    { family: '"Apple Garamond", serif', weight: 300, style: 'normal' },
-    { family: '"Maria", serif', weight: 300, style: 'normal' }
+  { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
+  { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
+  { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
+  { family: '"Apple Garamond", serif', weight: 300, style: 'normal' },
+  { family: '"Maria", serif', weight: 300, style: 'normal' },
+  { family: '"AlphaLyrae", sans-serif', weight: 600, style: 'normal' }
 ]
 const font = ref(fonts[0])
 
