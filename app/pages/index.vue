@@ -24,7 +24,7 @@
             </h1>
 
             <p class="fade-in text-sm opacity-50 font-monolith uppercase tracking-wide -mt-4 ml-1"
-                style="animation-delay: 0.8s">
+                style="animation-delay: 1.8s">
                 Front-end dev · Design systems · Generative art
                 <br />
                 <span class="blink">—</span>

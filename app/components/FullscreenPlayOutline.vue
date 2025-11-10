@@ -25,9 +25,9 @@
 
 /* Single-head draw: hide whole path, slide one dash along until fully revealed */
 .draw{
-  stroke-dasharray: 10000;   /* tiny overdraw prevents a seam at the end */
+  stroke-dasharray: 10000; 
   stroke-dashoffset: 10000;  /* fully hidden initially */
-  animation: draw 2.8s cubic-bezier(.2,.8,.2,1) .4s forwards; /* delay .4s */
+  animation: draw 8s cubic-bezier(.2,.8,.2,1) 1s forwards; /* delay .4s */
 }
 
 /* After the draw completes (≈3.2s), begin slow rotation */
