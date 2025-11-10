@@ -21,10 +21,10 @@
         <Transition name="fade">
             <nav v-if="isOpen"
                 class="fixed inset-0 z-[950] flex flex-col items-center justify-center text-center text-white font-monolith uppercase tracking-wide space-y-6">
-                <a href="#work" class="text-2xl hover:opacity-70 transition">Work</a>
-                <a href="#about" class="text-2xl hover:opacity-70 transition">About</a>
-                <a href="#experiments" class="text-2xl hover:opacity-70 transition">Experiments</a>
-                <a href="mailto:you@example.com" class="text-2xl hover:opacity-70 transition">Contact</a>
+                <a href="#work" class="text-2xl hover:opacity-70 transition line-through">Work</a>
+                <a href="#about" class="text-2xl hover:opacity-70 transition line-through">About</a>
+                <a href="#experiments" class="text-2xl hover:opacity-70 transition line-through">Experiments</a>
+                <a href="mailto:you@example.com" class="text-2xl hover:opacity-70 transition line-through">Contact</a>
             </nav>
         </Transition>
     </teleport>
