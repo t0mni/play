@@ -20,7 +20,7 @@
                 fontWeight: font.weight,
                 fontStyle: font.style
             }" class="fade-in text-9xl tracking-normal -mt-4 text-shadow-lg transition-all duration-300"
-                style="animation-delay: 0.8s;">
+                style="animation-delay: 1s;">
                 Play<span class="-ml-4">.</span>
             </h1>
 
