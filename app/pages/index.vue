@@ -12,6 +12,23 @@
     <div class="fixed top-4 right-2 md:right-12 z-[1000]">
         <MenuButton v-model:open="isOpen" />
     </div>
+    <!-- frosted overlay -->
+    <teleport to="body">
+        <Transition name="fade">
+            <div v-if="isOpen" class="fixed inset-0 z-[900] bg-white/10 backdrop-blur-sm" aria-hidden="true"
+                @click="isOpen = false" />
+        </Transition>
+        <Transition name="fade">
+            <nav v-if="isOpen"
+                class="fixed inset-0 z-[950] flex flex-col items-center justify-center text-center text-white font-monolith uppercase tracking-wide space-y-6">
+                <a href="#work" class="text-2xl hover:opacity-70 transition">Work</a>
+                <a href="#about" class="text-2xl hover:opacity-70 transition">About</a>
+                <a href="#experiments" class="text-2xl hover:opacity-70 transition">Experiments</a>
+                <a href="mailto:you@example.com" class="text-2xl hover:opacity-70 transition">Contact</a>
+            </nav>
+        </Transition>
+    </teleport>
+
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
 
         <header class="col-span-12 mb-8">
@@ -19,13 +36,13 @@
                 fontFamily: font.family,
                 fontWeight: font.weight,
                 fontStyle: font.style
-            }" class="fade-in text-9xl tracking-normal -mt-4 text-shadow-lg transition-all duration-300"
+            }" class="fade-in text-9xl tracking-normal -mt-4 text-shadow-2xs  transition-all duration-300"
                 style="animation-delay: 1.1s;">
                 Play<span class="-ml-4">.</span>
             </h1>
 
             <div class="fade-in" style="animation-delay:3.5s">
-                <p class="text-sm opacity-70 font-monolith uppercase tracking-wide -mt-4 ml-1">
+                <p class="text-sm opacity-70 mix-blend-color-burn font-monolith uppercase tracking-wide -mt-4 ml-1">
                     Front-end dev · Design systems · Generative art<br />
                     <span class="blink">—</span>
                 </p>
@@ -77,12 +94,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 const isOpen = ref(false)
-
 const year = new Date().getFullYear()
-
 const fonts = [
     { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
     { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
@@ -91,6 +106,11 @@ const fonts = [
     { family: '"Maria", serif', weight: 300, style: 'normal' }
 ]
 const font = ref(fonts[0])
+
+// lock scroll while open
+watch(isOpen, v => {
+    document.documentElement.classList.toggle('overflow-hidden', v)
+})
 
 onMounted(() => {
     let i = 0

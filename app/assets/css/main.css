@@ -2,7 +2,6 @@
 
 html,
 body {
-    @apply bg-black;
     font-family: "Apple Garamond", "TheGoodMonolith", Helvetica, sans-serif;
     cursor: crosshair;
 }
@@ -16,6 +15,7 @@ body {
         opacity: 0;
         transform: translateY(6px) scale(0.98);
     }
+
     to {
         opacity: 0.5;
         transform: translateY(0) scale(1);
@@ -29,16 +29,32 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: inherit; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: inherit;
+        transform: translateY(0);
+    }
 }
 
 .fade-in {
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
 .blink {
-  animation: blink 1s step-start infinite;
+    animation: blink 1s step-start infinite;
 }
-@keyframes blink { 50% { opacity: 0; } }
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.fade-enter-active { transition: opacity .25s ease, transform .25s ease; }
+.fade-enter-from { opacity:0; transform:translateY(-10px); }
+.fade-leave-to   { opacity:0; transform:translateY(10px); }
