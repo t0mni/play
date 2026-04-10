@@ -36,15 +36,15 @@
                 fontFamily: font.family,
                 fontWeight: font.weight,
                 fontStyle: font.style
-                }"
-                :class="['fade-in text-9xl -mt-4 text-shadow-2xs transition-all duration-300']"
+            }" :class="['fade-in text-9xl -mt-4 text-shadow-2xs transition-all duration-300']"
                 style="animation-delay: 1.1s;">
-            <template v-if="font.family.includes('TheGoodMonolith')">
-                <span class="tracking-tighter">P</span><span class="tracking-normal">lay</span><span class="-ml-4">.</span>
-            </template>
-            <template v-else>
-                Play<span class="-ml-4">.</span>
-            </template>
+                <template v-if="font.family.includes('TheGoodMonolith')">
+                    <span class="tracking-tighter">P</span><span class="tracking-normal">lay</span><span
+                        class="-ml-4">.</span>
+                </template>
+                <template v-else>
+                    Play<span class="-ml-4">.</span>
+                </template>
             </h1>
 
             <div class="fade-in" style="animation-delay:3.5s">
@@ -56,37 +56,48 @@
         </header>
 
         <main class="col-span-12 md:col-span-8 space-y-12">
-   
         </main>
 
-
-        <!-- Footer spans all 12 columns -->
         <footer
-            class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs opacity-20 font-monolith uppercase tracking-wide">
-            <p class="">{{ selectedImage }}</p>
-
-            —
-            <br />
-            ©{{ year }} Tom Nichols
+            class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs font-monolith tracking-wide">
+            <p class="uppercase opacity-20">{{ typedImage }}</p>
+            <span class="uppercase opacity-20">—</span><br /> 
+            <span class="uppercase opacity-20">{{ line2 }}</span>  <a href="https://github.com/t0mni/" target="_blank" class="opacity-20 hover:opacity-100">{{ line3 }}</a>
         </footer>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
+import { useTypewriter } from '~/composables/useTypewriter'
 
 const selectedImage = useState('selectedImage')
+const typedImage = ref('')
+const line2 = useTypewriter('© ' + new Date().getFullYear(), 60, 2000)
+const line3 = useTypewriter(' · t0mni', 60, 2000 + ('© ' + new Date().getFullYear() + ' ').length * 60)
+
 const isOpen = ref(false)
 const year = new Date().getFullYear()
 const fonts = [
-  { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
-  { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
-  { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
-  { family: '"Apple Garamond", serif', weight: 300, style: 'normal' },
-  { family: '"Maria", serif', weight: 300, style: 'normal' },
-  { family: '"AlphaLyrae", sans-serif', weight: 600, style: 'normal' }
+    { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
+    { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
+    { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
+    { family: '"Apple Garamond", serif', weight: 300, style: 'normal' },
+    { family: '"Maria", serif', weight: 300, style: 'normal' },
+    { family: '"AlphaLyrae", sans-serif', weight: 500, style: 'normal' }
 ]
 const font = ref(fonts[0])
+
+watch(selectedImage, (val) => {
+    if (!val) return
+    typedImage.value = ''
+    let i = 0
+    const interval = setInterval(() => {
+        typedImage.value += val[i]
+        i++
+        if (i >= val.length) clearInterval(interval)
+    }, 60)
+}, { immediate: true })
 
 // lock scroll while open
 watch(isOpen, v => {
