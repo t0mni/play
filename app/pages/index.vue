@@ -74,7 +74,7 @@ import { useTypewriter } from '~/composables/useTypewriter'
 const selectedImage = useState('selectedImage')
 const typedImage = ref('')
 const line2 = useTypewriter('© ' + new Date().getFullYear(), 60, 2000)
-const line3 = useTypewriter(' · t0mni', 60, 2000 + ('© ' + new Date().getFullYear() + ' ').length * 60)
+const line3 = useTypewriter('t0mni', 60, 2000 + ('© ' + new Date().getFullYear() + ' ').length * 60)
 
 const isOpen = ref(false)
 const year = new Date().getFullYear()
@@ -84,7 +84,7 @@ const fonts = [
     { family: '"Helvetica", sans-serif', weight: 700, style: 'normal' },
     { family: '"Apple Garamond", serif', weight: 300, style: 'normal' },
     { family: '"Maria", serif', weight: 300, style: 'normal' },
-    { family: '"AlphaLyrae", sans-serif', weight: 500, style: 'normal' }
+    { family: '"Josefin Sans", sans-serif', weight: 700, style: 'normal' }
 ]
 const font = ref(fonts[0])
 

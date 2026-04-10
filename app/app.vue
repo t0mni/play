@@ -16,7 +16,10 @@ useHead({
     { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/thegoodmonolith' },
     { rel: 'stylesheet', href: 'https://fonts.cdnfonts.com/css/maria-2' },
     { rel: 'stylesheet', href: base + 'fonts.css' },
-    { rel: 'preload', as: 'font', href: base + 'fonts/AlphaLyrae-Medium.woff2', type: 'font/woff2', crossorigin: 'anonymous' }
+    { rel: 'preload', as: 'font', href: base + 'fonts/AlphaLyrae-Medium.woff2', type: 'font/woff2', crossorigin: 'anonymous' },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+    { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap' }
   ],
   meta: [
     { name: 'theme-color', content: '#000000' }
