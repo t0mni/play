@@ -73,6 +73,6 @@
   .draw { animation: none; stroke-dashoffset: 0; }
   .spin { animation: none; }
   .clip-spin { animation: none; }
-  .reveal { animation: none; opacity: 1; }
+  .reveal { animation: none; opacity: 1; mix-blend-mode: screen; }
 }
 </style>
