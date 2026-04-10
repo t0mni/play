@@ -36,9 +36,15 @@
                 fontFamily: font.family,
                 fontWeight: font.weight,
                 fontStyle: font.style
-            }" class="fade-in text-9xl tracking-normal -mt-4 text-shadow-2xs  transition-all duration-300"
+                }"
+                :class="['fade-in text-9xl -mt-4 text-shadow-2xs transition-all duration-300']"
                 style="animation-delay: 1.1s;">
+            <template v-if="font.family.includes('TheGoodMonolith')">
+                <span class="tracking-tighter">P</span><span class="tracking-normal">lay</span><span class="-ml-4">.</span>
+            </template>
+            <template v-else>
                 Play<span class="-ml-4">.</span>
+            </template>
             </h1>
 
             <div class="fade-in" style="animation-delay:3.5s">

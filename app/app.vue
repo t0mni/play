@@ -40,7 +40,7 @@ const images = [
   'https://picsum.photos/seed/desert/1600/900',
   'https://picsum.photos/seed/galaxy/1600/900',
   'https://picsum.photos/seed/glacier/1600/900',
-  'https://picsum.photos/seed/nebula/1600/900',
+  'https://picsum.photos/seed/sky/1600/900',
   'https://picsum.photos/seed/aurora/1600/900',
   'https://picsum.photos/seed/stardust/1600/900',
   'https://picsum.photos/seed/fjord/1600/900',
