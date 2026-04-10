@@ -63,6 +63,7 @@
 .reveal {
   opacity: 0;
   animation: fade-in 2s ease-out 2s forwards;
+  mix-blend-mode: multiply;
 }
 
 @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -73,6 +74,6 @@
   .draw { animation: none; stroke-dashoffset: 0; }
   .spin { animation: none; }
   .clip-spin { animation: none; }
-  .reveal { animation: none; opacity: 1; mix-blend-mode: screen; }
+  .reveal { animation: none; opacity: 0.1; }
 }
 </style>
