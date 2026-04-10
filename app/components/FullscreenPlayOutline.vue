@@ -49,7 +49,7 @@
 }
 
 .spin {
-  animation: slow-rotate 120s linear infinite;
+  animation: slow-rotate 160s linear infinite;
   animation-delay: .7s;
   transform-origin: 50% 50%;
 }
