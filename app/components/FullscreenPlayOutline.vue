@@ -62,18 +62,18 @@
 
 .reveal {
   opacity: 0;
-  animation: fade-in 2s ease-out 2s forwards;
+  animation: fade-in 2s ease-out 3.5s forwards;
   mix-blend-mode: multiply;
 }
 
 @keyframes draw { to { stroke-dashoffset: 0; } }
 @keyframes slow-rotate { to { transform: rotate(360deg); } }
-@keyframes fade-in { to { opacity: 1; } }
+@keyframes fade-in { to { opacity: 0.2; } }
 
 @media (prefers-reduced-motion: reduce) {
   .draw { animation: none; stroke-dashoffset: 0; }
   .spin { animation: none; }
   .clip-spin { animation: none; }
-  .reveal { animation: none; opacity: 0.1; }
+  .reveal { animation: none; opacity: 1; }
 }
 </style>
