@@ -25,24 +25,24 @@ useHead({
 
 const colorClasses = [
   'bg-black',
-  'bg-blue-950',
+  'bg-indigo-950',
   'bg-emerald-950',
   'bg-cyan-950',
-  'bg-slate-900',
+  'bg-zinc-900',
   'bg-stone-900',
   'bg-neutral-950'
 ]
 
 const images = [
-  'https://picsum.photos/seed/mountain/1600/900',
+  'https://picsum.photos/seed/milkyway/1600/900',
   'https://picsum.photos/seed/forest/1600/900',
   'https://picsum.photos/seed/ocean/1600/900',
   'https://picsum.photos/seed/desert/1600/900',
-  'https://picsum.photos/seed/canyon/1600/900',
+  'https://picsum.photos/seed/galaxy/1600/900',
   'https://picsum.photos/seed/glacier/1600/900',
-  'https://picsum.photos/seed/valley/1600/900',
+  'https://picsum.photos/seed/nebula/1600/900',
   'https://picsum.photos/seed/aurora/1600/900',
-  'https://picsum.photos/seed/dunes/1600/900',
+  'https://picsum.photos/seed/stardust/1600/900',
   'https://picsum.photos/seed/fjord/1600/900',
 ]
 
