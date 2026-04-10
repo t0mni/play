@@ -18,7 +18,7 @@
     <!-- Full viewport image, fades in after draw completes -->
     <image
       class="reveal"
-      href="https://picsum.photos/seed/mountain/1600/900"
+      ref="imgEl"
       x="-20" y="-20"
       width="140" height="140"
       preserveAspectRatio="xMidYMid slice"
@@ -40,6 +40,25 @@
     </g>
   </svg>
 </template>
+
+<script setup>
+import { ref, watch } from 'vue'
+
+const props = defineProps({
+  selectedImage: {
+    type: String,
+    default: ''
+  }
+})
+
+const imgEl = ref(null)
+
+watch(() => props.selectedImage, (val) => {
+  if (imgEl.value && val) {
+    imgEl.value.setAttribute('href', val)
+  }
+}, { immediate: true })
+</script>
 
 <style scoped>
 .draw {

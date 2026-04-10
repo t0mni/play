@@ -49,43 +49,16 @@
             </div>
         </header>
 
-        <!-- Main area: two-column concept (content + side) -->
         <main class="col-span-12 md:col-span-8 space-y-12">
-            <!-- <section>
-        <h2 class="text-xl font-semibold mb-2">Selected Work</h2>
-        <ul class="list-disc pl-5 space-y-1">
-          <li><a class="underline" href="#">Project One</a> — short description.</li>
-          <li><a class="underline" href="#">Project Two</a> — short description.</li>
-          <li><a class="underline" href="#">Project Three</a> — short description.</li>
-        </ul>
-      </section> -->
-
-            <!-- <section>
-        <h2 class="text-xl font-semibold mb-2">About</h2>
-        <p>20+ years building fast, accessible, clean web UI. Manchester, UK.</p>
-      </section>
-
-      <section>
-        <h2 class="text-xl font-semibold mb-2">Contact</h2>
-        <p>
-          <a class="underline" href="mailto:you@example.com">you@example.com</a>
-        </p>
-      </section> -->
+   
         </main>
 
-        <!-- Sidebar placeholder (spans 4 columns on medium+) -->
-        <!-- <aside class="hidden md:block md:col-span-4 border-l pl-6">
-      <h3 class="text-lg font-semibold mb-4">Experiments</h3>
-      <ul class="space-y-2 text-sm opacity-80">
-        <li><a href="#" class="underline">Ticker Wars</a></li>
-        <li><a href="#" class="underline">List of Ghosts</a></li>
-        <li><a href="#" class="underline">BeeGen</a></li>
-      </ul>
-    </aside> -->
 
         <!-- Footer spans all 12 columns -->
         <footer
             class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs opacity-20 font-monolith uppercase tracking-wide">
+            <p class="">{{ selectedImage }}</p>
+
             —
             <br />
             ©{{ year }} Tom Nichols
@@ -96,6 +69,7 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 
+const selectedImage = useState('selectedImage')
 const isOpen = ref(false)
 const year = new Date().getFullYear()
 const fonts = [
