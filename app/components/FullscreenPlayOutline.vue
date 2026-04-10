@@ -62,7 +62,7 @@
 
 .reveal {
   opacity: 0;
-  animation: fade-in 2s ease-out 3.5s forwards;
+  animation: fade-in 2s ease-out 1.6s forwards;
   mix-blend-mode: multiply;
 }
 
