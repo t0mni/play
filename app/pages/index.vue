@@ -43,7 +43,7 @@
 
             <div class="fade-in" style="animation-delay:3.5s">
                 <p class="text-sm opacity-70 mix-blend-color-burn font-monolith uppercase tracking-wide -mt-4 ml-1">
-                    Front-end dev · Design systems · Generative art<br />
+                    Dev · Design · Art · Code<br />
                     <span class="blink">—</span>
                 </p>
             </div>
