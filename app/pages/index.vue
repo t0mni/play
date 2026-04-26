@@ -80,7 +80,6 @@
 import { ref, onMounted, watch } from 'vue'
 import { useTypewriter } from '~/composables/useTypewriter'
 
-
 const sectionRef = ref<HTMLElement | null>(null)
 const sectionText = ref<HTMLElement | null>(null)
 
