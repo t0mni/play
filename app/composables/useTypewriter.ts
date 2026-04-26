@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-export function useTypewriter(text: string, speed = 60, delay = 0.7) {
+export function useTypewriter(text: string, speed = 60, delay = 0.75) {
   const displayed = ref('')
 
   setTimeout(() => {

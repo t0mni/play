@@ -31,12 +31,9 @@
 
     <div class="p-0 grid grid-cols-12 gap-x-4 gap-y-10">
 
-        <header class="col-span-12 mb-8">
-            <h1 :style="{
-                fontFamily: font.family,
-                fontWeight: font.weight,
-                fontStyle: font.style
-            }" :class="['fade-in text-9xl -mt-4 text-shadow-2xs transition-all duration-300']"
+        <header class="col-span-12 mb-8 min-h-screen">
+            <h1 :style="{ fontFamily: font.family, fontWeight: font.weight, fontStyle: font.style }"
+                :class="['fade-in text-9xl -mt-4 text-shadow-2xs transition-all duration-300']"
                 style="animation-delay: 1.1s;">
                 <template v-if="font.family.includes('TheGoodMonolith')">
                     <span class="tracking-[-0.1em]">P</span><span class="tracking-normal">lay</span><span
@@ -54,9 +51,14 @@
                 </p>
             </div>
         </header>
+        <section ref="sectionRef" class="col-span-12 min-h-screen flex items-center justify-center">
 
-        <main class="col-span-12 md:col-span-8 space-y-12">
-        </main>
+            <main class="col-span-12 md:col-span-8 space-y-12  min-h-screen">
+
+                <p ref="sectionText" class="font-monolith uppercase tracking-wide text-sm">Scroll section</p>
+
+            </main>
+        </section>
 
         <footer
             class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs font-monolith tracking-wide transition-opacity duration-700"
@@ -64,7 +66,8 @@
             <p class="uppercase transition-opacity duration-1000" :class="footerVisible ? 'opacity-20' : 'opacity-0'">
                 {{ typedImage }}
             </p>
-            <span class="uppercase opacity-20">— <br /> {{ line2 }}</span> <a href="https://github.com/t0mni/" target="_blank" class="opacity-20 hover:opacity-100">{{ line3 }}</a>
+            <span class="uppercase opacity-20">— <br /> {{ line2 }}</span> <a href="https://github.com/t0mni/"
+                target="_blank" class="opacity-20 hover:opacity-100">{{ line3 }}</a>
         </footer>
     </div>
 </template>
@@ -72,6 +75,10 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import { useTypewriter } from '~/composables/useTypewriter'
+
+
+const sectionRef = ref<HTMLElement | null>(null)
+const sectionText = ref<HTMLElement | null>(null)
 
 const selectedImage = useState('selectedImage')
 const typedImage = ref('')
@@ -106,7 +113,7 @@ watch(selectedImage, (val) => {
                 clearInterval(interval)
                 setTimeout(() => {
                     footerVisible.value = false
-                }, 7500)
+                }, 5000)
             }
         }, 60)
     }, 1000)
@@ -117,6 +124,29 @@ watch(isOpen, v => {
 })
 
 onMounted(() => {
+
+
+    import('gsap').then(async ({ gsap }) => {
+        const { ScrollTrigger } = await import('gsap/ScrollTrigger')
+        gsap.registerPlugin(ScrollTrigger)
+
+
+        gsap.from(sectionText.value, {
+            opacity: 0,
+            y: 25,
+            duration: 10,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: sectionRef.value,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse',
+                markers: false
+            }
+        })
+    })
+
+
+
     setTimeout(() => {
         footerReady.value = true
     }, 1000)
