@@ -39,7 +39,7 @@
             }" :class="['fade-in text-9xl -mt-4 text-shadow-2xs transition-all duration-300']"
                 style="animation-delay: 1.1s;">
                 <template v-if="font.family.includes('TheGoodMonolith')">
-                    <span class="tracking-tighter">P</span><span class="tracking-normal">lay</span><span
+                    <span class="tracking-[-0.1em]">P</span><span class="tracking-normal">lay</span><span
                         class="-ml-4">.</span>
                 </template>
                 <template v-else>
@@ -49,7 +49,7 @@
 
             <div class="fade-in" style="animation-delay:3.5s">
                 <p class="text-sm opacity-70 mix-blend-color-burn font-monolith uppercase tracking-wide -mt-4 ml-1">
-                    Design · Art · Code<br />
+                    Art · Design · Code<br />
                     <span class="blink">—</span>
                 </p>
             </div>
@@ -60,9 +60,10 @@
 
         <footer
             class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs font-monolith tracking-wide">
-            <p class="uppercase opacity-20">{{ typedImage }}</p>
-            <span class="uppercase opacity-20">—</span><br /> 
-            <span class="uppercase opacity-20">{{ line2 }}</span>  <a href="https://github.com/t0mni/" target="_blank" class="opacity-20 hover:opacity-100">{{ line3 }}</a>
+            <p class="uppercase transition-opacity duration-1000" :class="footerVisible ? 'opacity-20' : 'opacity-0'">{{
+                typedImage }}</p> <span class="uppercase opacity-20">—</span><br />
+            <span class="uppercase opacity-20">{{ line2 }}</span> <a href="https://github.com/t0mni/" target="_blank"
+                class="opacity-20 hover:opacity-100">{{ line3 }}</a>
         </footer>
     </div>
 </template>
@@ -75,7 +76,7 @@ const selectedImage = useState('selectedImage')
 const typedImage = ref('')
 const line2 = useTypewriter('© ' + new Date().getFullYear(), 60, 2000)
 const line3 = useTypewriter('t0mni', 60, 2000 + ('© ' + new Date().getFullYear() + ' ').length * 60)
-
+const footerVisible = ref(true)
 const isOpen = ref(false)
 const year = new Date().getFullYear()
 const fonts = [
@@ -105,6 +106,11 @@ watch(isOpen, v => {
 })
 
 onMounted(() => {
+
+    setTimeout(() => {
+        footerVisible.value = false
+    }, 5000)
+
     let i = 0
     let delay = 80          // start very fast (100ms between swaps)
     const totalCycles = 14  // total font changes before stopping
