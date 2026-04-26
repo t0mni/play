@@ -65,13 +65,13 @@
         </section>
 
         <footer
-            class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs font-monolith tracking-wide transition-opacity duration-700"
+            class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-[10px] -mb-3 font-monolith tracking-wide transition-opacity duration-700"
             :class="footerReady ? 'opacity-100' : 'opacity-0'">
             <p class="uppercase transition-opacity duration-1000" :class="footerVisible ? 'opacity-20' : 'opacity-0'">
                 {{ typedImage }}
             </p>
-            <span class="uppercase opacity-20">— <br /> {{ line2 }}</span> <a href="https://github.com/t0mni/"
-                target="_blank" class="opacity-20 hover:opacity-100">{{ line3 }}</a>
+            <span class="uppercase opacity-20 -mt-3">— <br /> {{ line2 }}</span> <a href="https://github.com/t0mni/"
+                target="_blank" class="opacity-20 hover:opacity-100 -mt-3">{{ line3 }}</a>
         </footer>
     </div>
 </template>
