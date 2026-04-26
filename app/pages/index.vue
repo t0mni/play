@@ -106,6 +106,9 @@ watch(isOpen, v => {
 })
 
 onMounted(() => {
+    import('gsap').then(({ gsap }) => {
+        gsap.from('footer', { x: -200, duration: 1 })
+    })
 
     setTimeout(() => {
         footerVisible.value = false
