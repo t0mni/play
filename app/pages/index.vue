@@ -51,13 +51,17 @@
                 </p>
             </div>
         </header>
-        <section ref="sectionRef" class="col-span-12 min-h-screen flex items-center justify-center">
 
-            <main class="col-span-12 md:col-span-8 space-y-12  min-h-screen">
-
-                <p ref="sectionText" class="font-monolith uppercase tracking-wide text-sm">Scroll section</p>
-
-            </main>
+        <section ref="sectionRef"
+            class="-mx-2.5 col-span-12 min-h-screen flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 backdrop-blur-sm pointer-events-none"
+                :style="`background-color: ${sectionHex}33`">
+            </div>
+            <div class="absolute top-0 left-0 right-0 h-32 pointer-events-none"
+                :style="`background: linear-gradient(to bottom, transparent)`"></div>
+            <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+                :style="`background: linear-gradient(to top, transparent)`"></div>
+            <p ref="sectionText" class="font-monolith uppercase tracking-wide text-sm relative z-10">Scroll section</p>
         </section>
 
         <footer
@@ -98,6 +102,19 @@ const fonts = [
 ]
 const font = ref(fonts[0])
 
+const colors = [
+    { bg: 'bg-indigo-950', hex: '#1e1b4b' },
+    { bg: 'bg-emerald-950', hex: '#022c22' },
+    { bg: 'bg-cyan-950', hex: '#083344' },
+    { bg: 'bg-zinc-900', hex: '#18181b' },
+    { bg: 'bg-stone-900', hex: '#1c1917' },
+    { bg: 'bg-neutral-950', hex: '#0a0a0a' },
+]
+
+const sectionColor = colors[Math.floor(Math.random() * colors.length)]
+const sectionBg = ref(sectionColor.bg)
+const sectionHex = ref(sectionColor.hex)
+
 watch(selectedImage, (val) => {
     console.log('selectedImage changed:', val)
 
@@ -125,27 +142,26 @@ watch(isOpen, v => {
 
 onMounted(() => {
 
-
     import('gsap').then(async ({ gsap }) => {
         const { ScrollTrigger } = await import('gsap/ScrollTrigger')
         gsap.registerPlugin(ScrollTrigger)
 
-
-        gsap.from(sectionText.value, {
-            opacity: 0,
-            y: 25,
-            duration: 10,
-            ease: 'power2.out',
-            scrollTrigger: {
-                trigger: sectionRef.value,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse',
-                markers: false
+        gsap.fromTo(sectionText.value,
+            { opacity: 0, y: 10 },
+            {
+                opacity: 1,
+                y: 0,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: sectionRef.value,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1,
+                    markers: false
+                }
             }
-        })
+        )
     })
-
-
 
     setTimeout(() => {
         footerReady.value = true
