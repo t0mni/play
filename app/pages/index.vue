@@ -59,11 +59,12 @@
         </main>
 
         <footer
-            class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs font-monolith tracking-wide">
-            <p class="uppercase transition-opacity duration-1000" :class="footerVisible ? 'opacity-20' : 'opacity-0'">{{
-                typedImage }}</p> <span class="uppercase opacity-20">—</span><br />
-            <span class="uppercase opacity-20">{{ line2 }}</span> <a href="https://github.com/t0mni/" target="_blank"
-                class="opacity-20 hover:opacity-100">{{ line3 }}</a>
+            class="fixed inset-x-0 bottom-2 right-2 md:right-12 col-span-12 p-2.5 text-xs font-monolith tracking-wide transition-opacity duration-700"
+            :class="footerReady ? 'opacity-100' : 'opacity-0'">
+            <p class="uppercase transition-opacity duration-1000" :class="footerVisible ? 'opacity-20' : 'opacity-0'">
+                {{ typedImage }}
+            </p>
+            <span class="uppercase opacity-20">— <br /> {{ line2 }}</span> <a href="https://github.com/t0mni/" target="_blank" class="opacity-20 hover:opacity-100">{{ line3 }}</a>
         </footer>
     </div>
 </template>
@@ -74,11 +75,12 @@ import { useTypewriter } from '~/composables/useTypewriter'
 
 const selectedImage = useState('selectedImage')
 const typedImage = ref('')
-const line2 = useTypewriter('© ' + new Date().getFullYear(), 60, 2000)
-const line3 = useTypewriter('t0mni', 60, 2000 + ('© ' + new Date().getFullYear() + ' ').length * 60)
-const footerVisible = ref(true)
+const imageTypeDuration = (selectedImage.value?.length ?? 0) * 60
+const line2 = useTypewriter('© ' + new Date().getFullYear(), 60, 2800 + imageTypeDuration)
+const line3 = useTypewriter('t0mni', 60, 3200 + imageTypeDuration + ('© ' + new Date().getFullYear() + ' ').length * 60)
+const footerReady = ref(false)
+const footerVisible = ref(false)
 const isOpen = ref(false)
-const year = new Date().getFullYear()
 const fonts = [
     { family: '"TheGoodMonolith", sans-serif', weight: 400, style: 'normal' },
     { family: '"Apple Garamond", serif', weight: 400, style: 'italic' },
@@ -90,50 +92,52 @@ const fonts = [
 const font = ref(fonts[0])
 
 watch(selectedImage, (val) => {
+    console.log('selectedImage changed:', val)
+
     if (!val) return
     typedImage.value = ''
-    let i = 0
-    const interval = setInterval(() => {
-        typedImage.value += val[i]
-        i++
-        if (i >= val.length) clearInterval(interval)
-    }, 60)
-}, { immediate: true })
+    setTimeout(() => {
+        footerVisible.value = true
+        let i = 0
+        const interval = setInterval(() => {
+            typedImage.value += val[i]
+            i++
+            if (i >= val.length) {
+                clearInterval(interval)
+                setTimeout(() => {
+                    footerVisible.value = false
+                }, 7500)
+            }
+        }, 60)
+    }, 1000)
+})
 
-// lock scroll while open
 watch(isOpen, v => {
     document.documentElement.classList.toggle('overflow-hidden', v)
 })
 
 onMounted(() => {
-    import('gsap').then(({ gsap }) => {
-        gsap.from('footer', { x: -200, duration: 1 })
-    })
-
     setTimeout(() => {
-        footerVisible.value = false
-    }, 5000)
+        footerReady.value = true
+    }, 1000)
 
     let i = 0
-    let delay = 80          // start very fast (100ms between swaps)
-    const totalCycles = 14  // total font changes before stopping
-    const slowFactor = 1.1 // smaller = slower slowdown (gentler taper)
+    let delay = 80
+    const totalCycles = 14
+    const slowFactor = 1.1
 
     function cycle() {
         font.value = fonts[i % fonts.length]
         i++
-
         if (i < totalCycles) {
             setTimeout(cycle, delay)
             delay *= slowFactor
         } else {
-            // 🎯 pick a random font when done
             const random = Math.floor(Math.random() * fonts.length)
             font.value = fonts[random]
         }
     }
 
-    // start after 1s
     setTimeout(cycle, 900)
 })
 </script>
