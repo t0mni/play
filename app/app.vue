@@ -38,8 +38,8 @@ const colorClasses = [
 
 const images = [
   `${base}images/DSCF2438.webp`,
-  `${base}images/DSCF2438.webp`,
-  `${base}images/DSCF2438.webp`
+  `${base}images/DSCF0267.webp`,
+  `${base}images/IMG_8172.webp`
 ]
 
 const bgClass = ref('bg-black')
