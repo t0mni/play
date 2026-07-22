@@ -2,7 +2,7 @@
   <svg
     class="fixed inset-0 w-full h-full pointer-events-none z-0 text-white/40"
     viewBox="-20 -20 140 140"
-    preserveAspectRatio="xMinYMin slice"
+    preserveAspectRatio="xMidYMid slice"
     aria-hidden="true"
   >
     <defs>

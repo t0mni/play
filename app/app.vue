@@ -37,14 +37,9 @@ const colorClasses = [
 ]
 
 const images = [
-  'https://picsum.photos/seed/milkyway/1600/900',
-  'https://picsum.photos/seed/fjord/1600/900',
-  'https://picsum.photos/seed/ocean/1600/900',
-  'https://picsum.photos/seed/desert/1600/900',
-  'https://picsum.photos/seed/glacier/1600/900',
-  'https://picsum.photos/seed/sky/1600/900',
-  'https://picsum.photos/seed/aurora/1600/900',
-  'https://picsum.photos/seed/fjord/1600/900',
+  `${base}images/DSCF2438.webp`,
+  `${base}images/DSCF2438.webp`,
+  `${base}images/DSCF2438.webp`
 ]
 
 const bgClass = ref('bg-black')
